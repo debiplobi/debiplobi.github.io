@@ -3,14 +3,14 @@
 {% block head %}
   <!-- Basic SEO -->
   <meta name="description" content="debiplobi's personal blog covering software development, Linux, Rust, JS, React, DevOps, and tech experiments.">
-  <meta name="keywords" content="debiplobi, blog, programming, Rust, JavaScript, Linux, React, DevOps, Arch Linux">
-  <meta name="author" content="debiplobi">
+  <meta name="keywords" content="debiplobi, Debiprasad, debiprasasd, blog, programming, Rust, JavaScript, Linux, React, DevOps, Arch Linux">
+  <meta name="author" content="Debiprasad">
 
   <!-- Canonical URL -->
   <link rel="canonical" href="{{ config.base_url }}">
 
   <!-- OpenGraph Meta (for Facebook, Discord, WhatsApp) -->
-  <meta property="og:title" content="debiplobi's Blog">
+  <meta property="og:title" content="Debiprasad's hut">
   <meta property="og:description" content="Articles on software, Linux, coding, and personal projects.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="{{ config.base_url }}">
@@ -25,13 +25,25 @@
 {% endblock head %}
 
 {% block content %}
-<h1 class="title">debiplobi's Hut</h1>
+<h1 class="title">Debiprasad's hut</h1>
 <div>
-  <p>I mostly work on open-source projects and sometimes on freelancer stuff</p>
-  <p>currently learning rust...</p>
-  <p>Telegram @DebNationXD</p>
-  <p>Discord @linkeebux</p>
+  I work on open-source, mostly personal projects and sometimes on freelancer stuff.<br>
+  Currently exploring rust, creating cli tools, web sites, compiling the kernel.<br>
+  <div>
+    <p></p>
+    My Socials: <br>
+
+  <a href="https://gitub.com/debiplobi" target="_blank" rel="noopener">
+  GitHub
+  </a> ...
+  <a href="https://t.me/DebNationXD" target="_blank" rel="noopener">
+   Telegram 
+  </a>...
+  <a href="https://www.linkedin.com/in/debiprasaddasxyz/" target="_blank" rel="noopener">
+  LinkedIn
+  </a>
   </div>
+</div>
 
 {% set blog_section = get_section(path="blog/_index.md") %}
 

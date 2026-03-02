@@ -1,8 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Fira+Mono&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cascadia+Mono&display=swap");
 
 /* Four-Color Monochrome Palette */
 :root {
-  --bg: #000000; /* Background */
+  --bg: #111111; /* Background */
   --text: #dddddd; /* Main text */
   --bright: #ffffff; /* Headings / emphasis */
   --link: #949494; /* Dimmer links */
@@ -14,7 +16,7 @@
 }
 
 body {
-  font-family: "Fira Mono", monospace;
+  font-family: "Cascadia Mono", monospace;
   line-height: 1.6;
   margin: 0;
   padding: 0;
@@ -24,12 +26,7 @@ body {
 }
 
 /* Typography */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1, h2, h3, h4, h5, h6 {
   color: var(--bright);
   font-weight: bold;
   margin-top: 2rem;
@@ -46,6 +43,7 @@ h1 {
 a {
   color: var(--link);
   transition: color 0.2s ease;
+  text-decoration: none;
 }
 
 a:hover {
@@ -117,7 +115,7 @@ article h2 {
 
 /* Code blocks */
 code {
-  font-family: "JetBrains Mono", monospace;
+  font-family: "Fira Mono", "JetBrains Mono", monospace;
   background-color: var(--bg);
   color: var(--bright);
   padding: 0.2rem 0.4rem;
@@ -129,15 +127,44 @@ code {
 pre {
   background-color: var(--bg);
   border-left: 3px solid var(--bright);
-  padding: 1rem;
+  padding: 1.5rem 1rem 1rem 1rem; /* Extra top padding for the button */
   overflow-x: auto;
   margin: 1rem 0;
+  position: relative; /* Essential for button placement */
 }
 
 pre code {
   border: none;
   padding: 0;
   background: none;
+}
+
+/* Copy Button Styling */
+.copy-button {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background-color: var(--bg);
+  color: var(--bright);
+  border: 1px solid var(--bright);
+  padding: 4px 8px;
+  font-family: "Cascadia Mono", monospace;
+  font-size: 0.65rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  opacity: 0.6;
+  text-transform: uppercase;
+  z-index: 10;
+}
+
+.copy-button:hover {
+  background-color: var(--bright);
+  color: var(--bg);
+  opacity: 1;
+}
+
+.copy-button:active {
+  transform: scale(0.95);
 }
 
 /* Blockquote */
@@ -157,9 +184,8 @@ table {
   margin: 1rem 0;
 }
 
-th,
-td {
+th, td {
   padding: 0.75rem;
   text-align: left;
-  border-bottom: 1px solid;
+  border-bottom: 1px solid var(--bright);
 }
