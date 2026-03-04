@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+
+  <!-- Responsive -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Dynamic Title (falls back to default if page has no title) -->
+  <title>
+    
+      how to increase your video framerate • debiplobi's Blog
+    
+  </title>
+
+  <!-- Basic SEO -->
+  <meta name="description"
+        content="increase a video FPS">
+  <meta name="author" content="debiplobi">
+
+  <!-- Canonical -->
+  <link rel="canonical"
+        href="https://debiplobi.github.io/blog/how-to-convert-a-30fps-video-to-60fps/">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="https://debiplobi.github.io/style.css">
+
+  <!-- OpenGraph (Facebook/Discord/Reddit/Slack) -->
+  <meta property="og:title"
+        content="how to increase your video framerate • debiplobi's Blog">
+  <meta property="og:description"
+        content="increase a video FPS">
+  <meta property="og:type" content="article">
+  <meta property="og:url"
+        content="https://debiplobi.github.io/blog/how-to-convert-a-30fps-video-to-60fps/">
+  <meta property="og:image" content="https:&#x2F;&#x2F;debiplobi.github.io/og-image.jpg">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title"
+        content="how to increase your video framerate • debiplobi's Blog">
+  <meta name="twitter:description"
+        content="increase a video FPS">
+  <meta name="twitter:image" content="https:&#x2F;&#x2F;debiplobi.github.io/og-image.jpg">
+
+  <!-- JSON-LD structured data for Google -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "how to increase your video framerate",
+    "author": { "@type": "Person", "name": "debiplobi" },
+    "url": "https://debiplobi.github.io/blog/how-to-convert-a-30fps-video-to-60fps/",
+    "image": "https:&#x2F;&#x2F;debiplobi.github.io/og-image.jpg",
+    "publisher": {
+      "@type": "Organization",
+      "name": "debiplobi",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https:&#x2F;&#x2F;debiplobi.github.io/og-image.jpg"
+      }
+    }
+  }
+  </script>
+
+  
+  
+</head>
+
+<body>
+  <section class="section">
+    <div class="container">
+      
+<nav class="nav-back">
+  <a href="/">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left">
+      <line x1="19" y1="12" x2="5" y2="12"></line>
+      <polyline points="12 19 5 12 12 5"></polyline>
+    </svg>
+  Back
+  </a>
+</nav>
+<h1 class="title">
+  how to increase your video framerate
+</h1>
+<p class="subtitle"><strong>2025-07-26</strong></p>
+<p>We are going to use frame interpolation method to increase a video framerate using ffmpeg,</p>
+<ul>
+<li>With NVIDIA GPU Card</li>
+</ul>
+<pre><code>ffmpeg -hwaccel cuda -i input.mp4 -c:a copy -c:v libx264  -vf &quot;minterpolate=&#x27;mi_mode=mci:mc_mode=aobmc:vsbmc=1&#x27;&quot; -c:v h264_nvenc -preset slow -r 60 -vb 20M  output.mp4
+</code></pre>
+<ul>
+<li>Without NVIDIA Card</li>
+</ul>
+<pre><code>ffmpeg -i input.mp4 -c:a copy -c:v libx264 -vf &quot;minterpolate=mi_mode=mci:mc_mode=aobmc:vsbmc=1&quot; -preset slow -r 60 -b:v 20M output.mp4
+</code></pre>
+<ul>
+<li>
+<p>Explanation:</p>
+<p><code>input.mp4</code> is your input video that you want to convert
+<code>-preset</code> the slower it is the better
+<code>-r 60</code> is the framerate that you want to convert into
+<code>output.mp4</code> is the output file</p>
+</li>
+<li>
+<p>Downsides:</p>
+</li>
+</ul>
+<ol>
+<li>It's a time consuming process but gets the job done.</li>
+<li>If the video has too much motion, things became hazy.</li>
+</ol>
+<p>Biggest pluspoint is it works, without using fake websites or any subscription based online tools or AI, your file without leaving your computer.</p>
+
+
+    </div>
+  </section>
+<script src="https://debiplobi.github.io/script.js"></script>
+</body>
+
+</html>

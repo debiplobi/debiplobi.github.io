@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title></title>
+    <link rel="self" type="application/atom+xml" href="https://debiplobi.github.io/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://debiplobi.github.io"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2026-01-22T00:00:00+00:00</updated>
+    <id>https://debiplobi.github.io/atom.xml</id>
+    <entry xml:lang="en">
+        <title>how to fix niri screen share</title>
+        <published>2026-01-22T00:00:00+00:00</published>
+        <updated>2026-01-22T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://debiplobi.github.io/blog/how-to-fix-niri-screen-capture/"/>
+        <id>https://debiplobi.github.io/blog/how-to-fix-niri-screen-capture/</id>
+        
+        <content type="html" xml:base="https://debiplobi.github.io/blog/how-to-fix-niri-screen-capture/">&lt;h2 id=&quot;what-is-the-issue&quot;&gt;What is the issue?&lt;&#x2F;h2&gt;
+&lt;ol&gt;
+&lt;li&gt;The main issue here is the portal you do not have the correct portals.&lt;&#x2F;li&gt;
+&lt;li&gt;Niri is not starting correctly.&lt;&#x2F;li&gt;
+&lt;li&gt;Portals are overidden by other portals or .&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;h3 id=&quot;let-s-address-them-one-by-one&quot;&gt;Let&#x27;s address them one by one&lt;&#x2F;h3&gt;
+&lt;h3 id=&quot;1-for-niri-you-only-need-these-two-three-necessary-portal-to-do-screen-sharing&quot;&gt;1. For niri you only need these two(three) necessary portal to do screen sharing&lt;&#x2F;h3&gt;
+&lt;pre&gt;&lt;code&gt;xdg-desktop-portal
+xdg-desktop-portal-gnome
+xdg-desktop-portal-gtk
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;find these packages in your corresponding distro and install them.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;2-to-fix-this-you-just-have-to-run-this-on-startup-tty&quot;&gt;2. to fix this you just have to run this on startup(tty)&lt;&#x2F;h3&gt;
+&lt;pre&gt;&lt;code&gt;# systemd
+niri-session
+# others
+dbus-run-session niri --session
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h3 id=&quot;3-to-address-this-issue&quot;&gt;3. To address this issue,&lt;&#x2F;h3&gt;
+&lt;ul&gt;
+&lt;li&gt;we are just going to create a config file to specifically tell these backend are going to be used for these tasks.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;~&#x2F;.config&#x2F;xdg-desktop-portal&lt;&#x2F;p&gt;
+&lt;pre&gt;&lt;code&gt;[preferred]
+org.freedesktop.impl.portal.FileChooser=gnome;
+org.freedesktop.impl.portal.ScreenCast=gnome;
+org.freedesktop.impl.portal.Screenshot=gnome;
+org.freedesktop.impl.portal.RemoteDesktop=gnome;
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;ref:
+&lt;a href=&quot;https:&#x2F;&#x2F;yalter.github.io&#x2F;niri&#x2F;Important-Software.html&quot;&gt;niri wiki&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>how to increase your video framerate</title>
+        <published>2025-07-26T00:00:00+00:00</published>
+        <updated>2025-07-26T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://debiplobi.github.io/blog/how-to-convert-a-30fps-video-to-60fps/"/>
+        <id>https://debiplobi.github.io/blog/how-to-convert-a-30fps-video-to-60fps/</id>
+        
+        <content type="html" xml:base="https://debiplobi.github.io/blog/how-to-convert-a-30fps-video-to-60fps/">&lt;p&gt;We are going to use frame interpolation method to increase a video framerate using ffmpeg,&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;With NVIDIA GPU Card&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;pre&gt;&lt;code&gt;ffmpeg -hwaccel cuda -i input.mp4 -c:a copy -c:v libx264  -vf &amp;quot;minterpolate=&amp;#x27;mi_mode=mci:mc_mode=aobmc:vsbmc=1&amp;#x27;&amp;quot; -c:v h264_nvenc -preset slow -r 60 -vb 20M  output.mp4
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;ul&gt;
+&lt;li&gt;Without NVIDIA Card&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;pre&gt;&lt;code&gt;ffmpeg -i input.mp4 -c:a copy -c:v libx264 -vf &amp;quot;minterpolate=mi_mode=mci:mc_mode=aobmc:vsbmc=1&amp;quot; -preset slow -r 60 -b:v 20M output.mp4
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Explanation:&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;code&gt;input.mp4&lt;&#x2F;code&gt; is your input video that you want to convert
+&lt;code&gt;-preset&lt;&#x2F;code&gt; the slower it is the better
+&lt;code&gt;-r 60&lt;&#x2F;code&gt; is the framerate that you want to convert into
+&lt;code&gt;output.mp4&lt;&#x2F;code&gt; is the output file&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Downsides:&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;ol&gt;
+&lt;li&gt;It&#x27;s a time consuming process but gets the job done.&lt;&#x2F;li&gt;
+&lt;li&gt;If the video has too much motion, things became hazy.&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;Biggest pluspoint is it works, without using fake websites or any subscription based online tools or AI, your file without leaving your computer.&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>my experience with nothing phone</title>
+        <published>2025-07-21T00:00:00+00:00</published>
+        <updated>2025-07-21T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://debiplobi.github.io/blog/my-experience-with-nothing-phone/"/>
+        <id>https://debiplobi.github.io/blog/my-experience-with-nothing-phone/</id>
+        
+        <content type="html" xml:base="https://debiplobi.github.io/blog/my-experience-with-nothing-phone/">&lt;p&gt;I have been using their 2a Plus model for 6 months, so it was my first phone with an AMOLED display I didn&#x27;t knew what are the quirks of an OLED display,
+when I got the phone I didn&#x27;t noticed anything unusual everything was like it supposed to be but then after 4-5 days when I first opened my phone camera in a very dark place at night,
+I saw the camera (I mean display) got all grany green colors on it and it scared me I thought camera is damaged but then when I came to a bright place everything seems to be normal so I started searching immediately about the issue then I found that google says it&#x27;s normal for AMOLED display to show some green and purple tints but my friends phones didn&#x27;t have this exaggerate tints when I compared with a friend of mine and I found something strange is that when I played a LG OLED video in a spot my phone display showing weird colors but his is not.
+So that day when I was going to sleep and when I put the brightness to very low sometimes strange happend everthing became the same greenish tint and even some green distored pixel lines when I open statusbar panel when phone is locked.
+I have seen some threads on reddit and their offical forum that it is software issue but when I deep dived it is not this happens because of display is incapable of showing some dark shades color in this case it is #030303.
+I also having to attempt 3-4 times to open the phone using In-Display-Fingerprint Sensor, I think due to the faulty dislay fingerprint recognition also hampered.
+Nothing corp knew about the issue and did push a OS update where it changes the lock screen shade color to pitch black so that green tint won&#x27;t be visible but does that fix the main problem!
+no, it&#x27;s not.
+As far as I know VisionX manufactured has this issue more prominent than BOE manufactured display, but both of them are bad in comparison to the phones display quality you get in this price range.
+So where ever this color is present the display shows green and purple tints, and even some HDR movies dark scenes got so bad(green&#x2F;purple tint) I decided to contact their support.
+Next day morning I called to their support and they told me that this is normal for OLED displays, I have told them this is only happening to only my phone display but why not in my fried phone and they told me if I am so worried about it I have to go to their service centre,
+I have seen some reddit users to go their service and centre and showed them the problem but the support team does not recognize this is an issue, even if for some people they recognize it even get a display replacement it is same faulty manufactured diplay they are replacing with so that&#x27;s not gonna fix anything,
+that display costs around 7000 INR if not in warranty,if I try to replace the original display with third party display it will just make the things worse because most of the time those cheap display are even lower quality and has heating issues,
+I have primarily bought it to watch HDR movies but can&#x27;t do it properly, So I have decided to sell the phone on OLX and I got around 15k INR for the phone and I have bought a refurbished IQOO Z9 from IQOO official site at 11k, the phone is like new and since then I am not seeing those greenish and purpleish tint so exxagerated anymore on this display.&lt;&#x2F;p&gt;
+&lt;p&gt;TLDR; Be careful when buying phones from nothing they does cost cutting on parts where it matters.&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>void linux is so fast</title>
+        <published>2024-06-19T00:00:00+00:00</published>
+        <updated>2024-06-19T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://debiplobi.github.io/blog/void-linux-is-so-fast/"/>
+        <id>https://debiplobi.github.io/blog/void-linux-is-so-fast/</id>
+        
+        <content type="html" xml:base="https://debiplobi.github.io/blog/void-linux-is-so-fast/">&lt;h3 id=&quot;what-is-void-linux&quot;&gt;What is Void Linux:&lt;&#x2F;h3&gt;
+&lt;p&gt;void is a systemd-free runit based init system distro, who tries to be a independent free of the systemd monopoly and give it&#x27;s users a clean system experience.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;why-you-should-use-void-in-my-opinion&quot;&gt;Why You should Use Void(in my opinion)&lt;&#x2F;h2&gt;
+&lt;h4 id=&quot;1-package-manager&quot;&gt;1. Package manager:&lt;&#x2F;h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Void has a one of the best package manager out there, it&#x27;s very fast although the mirrors are kind of slow.&lt;&#x2F;li&gt;
+&lt;li&gt;Void packages are very small, they don&#x27;t include debug packages when you install some core utils, so that does make it very lightweight.&lt;&#x2F;li&gt;
+&lt;li&gt;Void package availability is surprisingly much better than pacman, or I think so excluding aur, found some packages in void repo which aren&#x27;t available in pacman.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h4 id=&quot;2-runit&quot;&gt;2. Runit:&lt;&#x2F;h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Runit is very fast even faster than systemd, boot time is less than 5 sec, unlike openrc it starts services in parallal.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h4 id=&quot;3-stability&quot;&gt;3. Stability:&lt;&#x2F;h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Void is very stable, even though though they are rolling release linux distribution, it is rock solid, the packages are rarely breaks.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h4 id=&quot;4-documentation&quot;&gt;4: Documentation:&lt;&#x2F;h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Yes, I know their documentation sucks, but it is great when you don&#x27;t need alot of things to run a system, it covers almost all the basic things needed to setup or fix.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h4 id=&quot;5-very-small-footprint&quot;&gt;5: Very Small Footprint:&lt;&#x2F;h4&gt;
+&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Architechture&lt;&#x2F;th&gt;&lt;th&gt;CPU&lt;&#x2F;th&gt;&lt;th&gt;RAM&lt;&#x2F;th&gt;&lt;th&gt;Storage&lt;&#x2F;th&gt;&lt;&#x2F;tr&gt;&lt;&#x2F;thead&gt;&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;x86_64-glibc&lt;&#x2F;td&gt;&lt;td&gt;x86_64&lt;&#x2F;td&gt;&lt;td&gt;96MB&lt;&#x2F;td&gt;&lt;td&gt;700MB&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;x86_64-musl&lt;&#x2F;td&gt;&lt;td&gt;x86_64&lt;&#x2F;td&gt;&lt;td&gt;96MB&lt;&#x2F;td&gt;&lt;td&gt;600MB&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;i686-glibc&lt;&#x2F;td&gt;&lt;td&gt;Pentium 4 (SSE2)&lt;&#x2F;td&gt;&lt;td&gt;96MB&lt;&#x2F;td&gt;&lt;td&gt;700MB&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;&#x2F;tbody&gt;&lt;&#x2F;table&gt;
+&lt;ul&gt;
+&lt;li&gt;The base memory foot print is very small even smaller than arch linux.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h4 id=&quot;6-downsides&quot;&gt;6: DownSides:&lt;&#x2F;h4&gt;
+&lt;ul&gt;
+&lt;li&gt;It is not updated as fast as arch linux does although some packages are faster to provide update.&lt;&#x2F;li&gt;
+&lt;li&gt;Void has problems with NVIDIA GPU by default it uses open-source Nouveau driver so the distro gets stuck while booting into it, atleast it got stuck for me many times, you may need to switch to proper drivers.&lt;&#x2F;li&gt;
+&lt;li&gt;Void works best with Xorg, and wayland compositors like hyprland are not available in void through offical repository.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</content>
+        
+    </entry>
+</feed>
