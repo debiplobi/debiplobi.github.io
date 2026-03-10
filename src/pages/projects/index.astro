@@ -7,11 +7,11 @@ const allProjects = await getCollection('projects');
 allProjects.sort((a, b) => b.data.year - a.data.year);
 ---
 
-<Layout title="All Projects | JD." description="A showcase of things I've built.">
+<Layout title="All Projects | Debiprasad Das" description="A showcase of things I've built.">
   <div class="min-h-screen bg-background text-foreground flex flex-col items-center py-20 px-6 sm:px-12 selection:bg-primary/20">
       <main class="max-w-3xl w-full flex flex-col gap-16 animate-in fade-in slide-in-from-bottom-4 duration-700">
           <header class="flex justify-between items-center w-full">
-              <a href="/" class="font-bold tracking-tight text-xl text-foreground hover:text-primary transition-colors">JD.</a>
+              <a href="/" class="font-bold tracking-tight text-xl text-foreground hover:text-primary transition-colors">DD.</a>
               <ThemeToggle client:load />
           </header>
 
@@ -41,7 +41,7 @@ allProjects.sort((a, b) => b.data.year - a.data.year);
           
           <footer class="pt-12 mt-12 border-t border-border/30 flex flex-col sm:flex-row items-center justify-between gap-4">
               <p class="text-sm text-muted-foreground">
-                  &copy; {new Date().getFullYear()} John Doe. All rights reserved.
+                  &copy; {new Date().getFullYear()} Debiprasad Das. All rights reserved.
               </p>
           </footer>
       </main>
