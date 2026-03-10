@@ -1,13 +1,14 @@
 ---
-import { getCollection } from 'astro:content';
-import MarkdownLayout from '../../layouts/MarkdownLayout.astro';
-import Layout from '../../layouts/Layout.astro';
+import { getCollection } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import MarkdownLayout from "../../layouts/MarkdownLayout.astro";
 
 export async function getStaticPaths() {
-  const projectEntries = await getCollection('projects');
-  return projectEntries.map(entry => ({
-    params: { slug: entry.slug }, props: { entry },
-  }));
+	const projectEntries = await getCollection("projects");
+	return projectEntries.map((entry) => ({
+		params: { slug: entry.slug },
+		props: { entry },
+	}));
 }
 
 const { entry } = Astro.props;

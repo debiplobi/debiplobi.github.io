@@ -1,16 +1,18 @@
 ---
-import { ThemeToggle } from '../components/ThemeToggle';
-import Layout from './Layout.astro';
+import { ThemeToggle } from "../components/ThemeToggle";
+import Layout from "./Layout.astro";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { ArrowLeft01Icon } from "@hugeicons/core-free-icons";
+import { Image } from "astro:assets";
 
 interface Props {
-  frontmatter: {
-    title: string;
-    description: string;
-    date?: Date;
-    year?: number;
-  };
+	frontmatter: {
+		title: string;
+		description: string;
+		date?: Date;
+		year?: number;
+		heroImage?: any;
+	};
 }
 
 const { frontmatter } = Astro.props;
@@ -33,6 +35,9 @@ const { frontmatter } = Astro.props;
                 {frontmatter.date && <time datetime={frontmatter.date.toISOString()}>{frontmatter.date.toLocaleDateString('en-us', { year: 'numeric', month: 'short', day: 'numeric' })}</time>}
                 {frontmatter.year && <span>{frontmatter.year}</span>}
             </div>
+            {frontmatter.heroImage && (
+                <Image src={frontmatter.heroImage} alt={frontmatter.title} class="w-full rounded-2xl aspect-video object-cover mt-4 shadow-sm border border-border/50" />
+            )}
         </header>
 
         <article class="prose prose-neutral dark:prose-invert prose-p:leading-relaxed prose-headings:tracking-tight max-w-none">
@@ -41,7 +46,7 @@ const { frontmatter } = Astro.props;
 
         <footer class="pt-12 mt-12 border-t border-border/30 flex flex-col sm:flex-row items-center justify-between gap-4">
             <p class="text-sm text-muted-foreground">
-                &copy; {new Date().getFullYear()} John Doe. All rights reserved.
+                &copy; {new Date().getFullYear()} Debiprasad Das. All rights reserved.
             </p>
         </footer>
     </main>

@@ -1,27 +1,27 @@
 // @ts-check
-import { defineConfig } from 'astro/config';
+import { defineConfig } from "astro/config";
 
-import react from '@astrojs/react';
+import react from "@astrojs/react";
 
-import sitemap from '@astrojs/sitemap';
+import sitemap from "@astrojs/sitemap";
 
-import tailwindcss from '@tailwindcss/vite';
+import tailwindcss from "@tailwindcss/vite";
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://johndoe.dev',
-  integrations: [react(), sitemap()],
-  markdown: {
-    shikiConfig: {
-      themes: {
-        light: 'github-light',
-        dark: 'github-dark',
-      },
-      defaultColor: false,
-    },
-  },
+	site: "https://johndoe.dev",
+	integrations: [react(), sitemap()],
+	markdown: {
+		shikiConfig: {
+			themes: {
+				light: "github-light",
+				dark: "github-dark",
+			},
+			defaultColor: false,
+		},
+	},
 
-  vite: {
-    plugins: [tailwindcss()]
-  }
+	vite: {
+		plugins: [tailwindcss()],
+	},
 });

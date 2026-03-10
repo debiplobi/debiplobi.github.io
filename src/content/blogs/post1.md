@@ -3,9 +3,8 @@ title = "Nothing Phone (2a Plus) Display Issue: My 6 Month Experience"
 date = 2025-07-21
 description = "My 6 month experience using the Nothing Phone (2a Plus), including the green tint AMOLED display issue and why I eventually sold the phone."
 tags = ["nothing-phone", "amoled-display", "green-tint"]
+heroImage = "../../assets/post1/green-purple-tint1.jpeg"
 +++
-
-![ref image](../../assets/post1/green-purple-tint1.jpeg)
 
 # My Experience With the Nothing Phone (2a Plus)
 

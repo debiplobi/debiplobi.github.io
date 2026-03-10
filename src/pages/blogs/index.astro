@@ -1,9 +1,9 @@
 ---
-import { getCollection } from 'astro:content';
-import { ThemeToggle } from '../../components/ThemeToggle';
-import Layout from '../../layouts/Layout.astro';
+import { getCollection } from "astro:content";
+import { ThemeToggle } from "../../components/ThemeToggle";
+import Layout from "../../layouts/Layout.astro";
 
-const allBlogs = await getCollection('blogs');
+const allBlogs = await getCollection("blogs");
 allBlogs.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 ---
 

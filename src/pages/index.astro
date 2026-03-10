@@ -1,19 +1,19 @@
 ---
+import { getCollection } from "astro:content";
 import Homepage from "../components/Homepage.tsx";
 import Layout from "../layouts/Layout.astro";
-import { getCollection } from 'astro:content';
 
-const RawBlogs = await getCollection('blogs');
-const recentBlogs = RawBlogs
-  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
-  .slice(0, 2)
-  .map(blog => ({ slug: blog.slug, data: blog.data }));
+const RawBlogs = await getCollection("blogs");
+const recentBlogs = RawBlogs.sort(
+	(a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+)
+	.slice(0, 2)
+	.map((blog) => ({ slug: blog.slug, data: blog.data }));
 
-const RawProjects = await getCollection('projects');
-const recentProjects = RawProjects
-  .sort((a, b) => b.data.year - a.data.year)
-  .slice(0, 2)
-  .map(project => ({ slug: project.slug, data: project.data }));
+const RawProjects = await getCollection("projects");
+const recentProjects = RawProjects.sort((a, b) => b.data.year - a.data.year)
+	.slice(0, 2)
+	.map((project) => ({ slug: project.slug, data: project.data }));
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
