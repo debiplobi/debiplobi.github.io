@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+
+  <!-- Responsive -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Dynamic Title (falls back to default if page has no title) -->
+  <title>
+    
+      how to fix niri screen share • debiplobi's Blog
+    
+  </title>
+
+  <!-- Basic SEO -->
+  <meta name="description"
+        content="Step-by-step guide to fixing screen sharing and screen capture issues on the Niri window manager using Wayland. Works with OBS, browsers, and PipeWire.">
+  <meta name="author" content="debiplobi">
+
+  <!-- Canonical -->
+  <link rel="canonical"
+        href="https://debiplobi.github.io/blog/how-to-fix-niri-screen-capture/">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="https://debiplobi.github.io/style.css">
+
+  <!-- OpenGraph (Facebook/Discord/Reddit/Slack) -->
+  <meta property="og:title"
+        content="how to fix niri screen share • debiplobi's Blog">
+  <meta property="og:description"
+        content="Step-by-step guide to fixing screen sharing and screen capture issues on the Niri window manager using Wayland. Works with OBS, browsers, and PipeWire.">
+  <meta property="og:type" content="article">
+  <meta property="og:url"
+        content="https://debiplobi.github.io/blog/how-to-fix-niri-screen-capture/">
+  <meta property="og:image" content="https:&#x2F;&#x2F;debiplobi.github.io/og-image.jpg">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title"
+        content="how to fix niri screen share • debiplobi's Blog">
+  <meta name="twitter:description"
+        content="Step-by-step guide to fixing screen sharing and screen capture issues on the Niri window manager using Wayland. Works with OBS, browsers, and PipeWire.">
+  <meta name="twitter:image" content="https:&#x2F;&#x2F;debiplobi.github.io/og-image.jpg">
+
+  <!-- JSON-LD structured data for Google -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "how to fix niri screen share",
+    "author": { "@type": "Person", "name": "debiplobi" },
+    "url": "https://debiplobi.github.io/blog/how-to-fix-niri-screen-capture/",
+    "image": "https:&#x2F;&#x2F;debiplobi.github.io/og-image.jpg",
+    "publisher": {
+      "@type": "Organization",
+      "name": "debiplobi",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https:&#x2F;&#x2F;debiplobi.github.io/og-image.jpg"
+      }
+    }
+  }
+  </script>
+
+  
+  
+</head>
+
+<body>
+  <section class="section">
+    <div class="container">
+      
+<nav class="nav-back">
+  <a href="/">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left">
+      <line x1="19" y1="12" x2="5" y2="12"></line>
+      <polyline points="12 19 5 12 12 5"></polyline>
+    </svg>
+  Back
+  </a>
+</nav>
+<h1 class="title">
+  how to fix niri screen share
+</h1>
+<p class="subtitle"><strong>2026-01-22</strong></p>
+<h2 id="what-is-the-issue">What is the issue?</h2>
+<ol>
+<li>The main issue here is the portal you do not have the correct portals.</li>
+<li>Niri is not starting correctly.</li>
+<li>Portals are overidden by other portals or .</li>
+</ol>
+<h3 id="let-s-address-them-one-by-one">Let's address them one by one</h3>
+<h3 id="1-for-niri-you-only-need-these-two-three-necessary-portal-to-do-screen-sharing">1. For niri you only need these two(three) necessary portal to do screen sharing</h3>
+<pre><code>xdg-desktop-portal
+xdg-desktop-portal-gnome
+xdg-desktop-portal-gtk
+</code></pre>
+<p>find these packages in your corresponding distro and install them.</p>
+<h3 id="2-to-fix-this-you-just-have-to-run-this-on-startup-tty">2. to fix this you just have to run this on startup(tty)</h3>
+<pre><code># systemd
+niri-session
+# others
+dbus-run-session niri --session
+</code></pre>
+<h3 id="3-to-address-this-issue">3. To address this issue,</h3>
+<ul>
+<li>we are just going to create a config file to specifically tell these backend are going to be used for these tasks.</li>
+</ul>
+<p>~/.config/xdg-desktop-portal</p>
+<pre><code>[preferred]
+org.freedesktop.impl.portal.FileChooser=gnome;
+org.freedesktop.impl.portal.ScreenCast=gnome;
+org.freedesktop.impl.portal.Screenshot=gnome;
+org.freedesktop.impl.portal.RemoteDesktop=gnome;
+</code></pre>
+<p>ref:
+<a href="https://yalter.github.io/niri/Important-Software.html">niri wiki</a></p>
+
+
+    </div>
+  </section>
+<script src="https://debiplobi.github.io/script.js"></script>
+</body>
+
+</html>
