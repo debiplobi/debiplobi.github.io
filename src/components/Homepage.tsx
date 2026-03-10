@@ -254,6 +254,20 @@ export default function Homepage({
 								GitHub
 							</Button>
 						</a>
+
+						<a
+							href="https://www.linkedin.com/in/debiprasaddasxyz"
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							<Button
+								variant="ghost"
+								size="sm"
+								className="text-muted-foreground hover:text-foreground"
+							>
+								Linkedin
+							</Button>
+						</a>
 						<a href="mailto:debiprasaddas@proton.me">
 							<Button
 								variant="ghost"
