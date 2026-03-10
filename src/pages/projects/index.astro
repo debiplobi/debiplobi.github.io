@@ -1,0 +1,49 @@
+---
+import { getCollection } from "astro:content";
+import { ThemeToggle } from "../../components/ThemeToggle";
+import Layout from "../../layouts/Layout.astro";
+
+const allProjects = await getCollection("projects");
+allProjects.sort((a, b) => b.data.year - a.data.year);
+---
+
+<Layout title="All Projects | Debiprasad Das" description="A showcase of things I've built.">
+  <div class="min-h-screen bg-background text-foreground flex flex-col items-center py-20 px-6 sm:px-12 selection:bg-primary/20">
+    <main class="max-w-3xl w-full flex flex-col gap-16 animate-in fade-in slide-in-from-bottom-4 duration-700">
+        <header class="flex justify-between items-center w-full">
+              <a href="/" class="font-bold tracking-tight text-xl text-foreground hover:text-primary transition-colors">DD.</a>
+              <ThemeToggle client:load />
+          </header>
+
+          <div class="space-y-6">
+              <h1 class="text-4xl sm:text-5xl font-bold tracking-tight text-foreground">
+                  All Projects
+              </h1>
+              <p class="text-lg text-muted-foreground">A showcase of things I've built.</p>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+              {allProjects.map((project) => (
+                  <a href={`/projects/${project.slug}`} class="group relative rounded-2xl border border-border/50 bg-card p-6 overflow-hidden hover:border-border/80 hover:shadow-sm transition-[background-color,box-shadow,border-color] duration-300">
+                      <div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                      <div class="relative z-10 space-y-3">
+                          <div class="flex items-center justify-between">
+                              <h4 class="font-semibold text-lg group-hover:text-primary">{project.data.title}</h4>
+                              <span class="text-xs font-mono text-muted-foreground bg-muted px-2 py-1 rounded-md">{project.data.year}</span>
+                          </div>
+                          <p class="text-sm text-muted-foreground/80 line-clamp-3">
+                              {project.data.description}
+                          </p>
+                      </div>
+                  </a>
+              ))}
+          </div>
+          
+          <footer class="pt-12 mt-12 border-t border-border/30 flex flex-col sm:flex-row items-center justify-between gap-4">
+              <p class="text-sm text-muted-foreground">
+                  &copy; {new Date().getFullYear()} Debiprasad Das. All rights reserved.
+              </p>
+          </footer>
+      </main>
+  </div>
+</Layout>
