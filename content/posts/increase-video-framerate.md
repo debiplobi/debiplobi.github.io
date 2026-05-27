@@ -1,5 +1,5 @@
 +++
-title = "How to Increase Increase a Video Framerate"
+title = "How to increase a video framerate"
 date = 2025-07-26
 tags = ["video", "framerate", "increase-framerate", "increse-video-framerate", "GPU", "FPS"]
 +++

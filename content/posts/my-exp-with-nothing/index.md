@@ -1,5 +1,5 @@
 +++
-title = 'My Experience With Nothing'
+title = 'My experience with a Nothing phone'
 date = 2025-07-21
 description = "My 6 month experience using the Nothing Phone (2a Plus), including the green tint AMOLED display issue and why I eventually sold the phone."
 tags = ["nothing-phone", "amoled-display", "green-tint"]

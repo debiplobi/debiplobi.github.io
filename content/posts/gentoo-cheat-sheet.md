@@ -1,7 +1,7 @@
 +++
 date = '2026-05-27T20:17:58+05:30'
 draft = true
-title = 'Gentoo Cheat Sheet'
+title = 'Gentoo cheat sheet'
 +++
 
 - Sync local pkg database

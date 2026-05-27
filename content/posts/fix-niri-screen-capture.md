@@ -1,5 +1,5 @@
 +++
-title = "How to Fix Niri Window Manager Screen Capture"
+title = "How to fix niri window manager screen capture"
 date = 2026-01-22
 tags = ["niri", "niri wm", "window manager", "obs", "wayland", "screen share", "screen capture", "compositor", "smithay compositor", "niri window manager", "screen sharing", "pipewire"]
 +++
