@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smithay Compositor on blog</title><link>https://debiplobi.github.io/tags/smithay-compositor/</link><description>Recent content in Smithay Compositor on blog</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Thu, 22 Jan 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://debiplobi.github.io/tags/smithay-compositor/index.xml" rel="self" type="application/rss+xml"/><item><title>How to Fix Niri Window Manager Screen Capture</title><link>https://debiplobi.github.io/posts/fix-niri-screen-capture/</link><pubDate>Thu, 22 Jan 2026 00:00:00 +0000</pubDate><guid>https://debiplobi.github.io/posts/fix-niri-screen-capture/</guid><description>&lt;h2 id="what-is-the-issue"&gt;What is the issue?&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;The main issue here is the portal you do not have the correct portals.&lt;/li&gt;
+&lt;li&gt;Niri is not starting correctly.&lt;/li&gt;
+&lt;li&gt;Portals are overidden by other portals or not starting at all .&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id="lets-address-them-one-by-one"&gt;Let&amp;rsquo;s address them one by one&lt;/h3&gt;
+&lt;h3 id="1-for-niri-you-only-need-these-twothree-necessary-portal-to-do-screen-sharing"&gt;1. For niri you only need these two(three) necessary portal to do screen sharing&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;xdg-desktop-portal&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;xdg-desktop-portal-gnome&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;xdg-desktop-portal-gtk&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;find these packages in your corresponding distro and install them.&lt;/p&gt;
+&lt;h3 id="2-to-fix-this-you-just-have-to-run-this-on-startuptty"&gt;2. to fix this you just have to run this on startup(tty)&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# systemd&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;niri-session
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# others&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;dbus-run-session niri --session
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="3-to-address-this-issue"&gt;3. To address this issue,&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;we are just going to create a config file to specifically tell these backend are going to be used for these tasks.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;~/.config/xdg-desktop-portal&lt;/p&gt;</description></item></channel></rss>

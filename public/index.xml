@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Home on blog</title><link>https://debiplobi.github.io/</link><description>Recent content in Home on blog</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Thu, 22 Jan 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://debiplobi.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>How to Fix Niri Window Manager Screen Capture</title><link>https://debiplobi.github.io/posts/fix-niri-screen-capture/</link><pubDate>Thu, 22 Jan 2026 00:00:00 +0000</pubDate><guid>https://debiplobi.github.io/posts/fix-niri-screen-capture/</guid><description>&lt;h2 id="what-is-the-issue"&gt;What is the issue?&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;The main issue here is the portal you do not have the correct portals.&lt;/li&gt;
+&lt;li&gt;Niri is not starting correctly.&lt;/li&gt;
+&lt;li&gt;Portals are overidden by other portals or not starting at all .&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id="lets-address-them-one-by-one"&gt;Let&amp;rsquo;s address them one by one&lt;/h3&gt;
+&lt;h3 id="1-for-niri-you-only-need-these-twothree-necessary-portal-to-do-screen-sharing"&gt;1. For niri you only need these two(three) necessary portal to do screen sharing&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;xdg-desktop-portal&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;xdg-desktop-portal-gnome&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;xdg-desktop-portal-gtk&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;find these packages in your corresponding distro and install them.&lt;/p&gt;
+&lt;h3 id="2-to-fix-this-you-just-have-to-run-this-on-startuptty"&gt;2. to fix this you just have to run this on startup(tty)&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# systemd&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;niri-session
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# others&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;dbus-run-session niri --session
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="3-to-address-this-issue"&gt;3. To address this issue,&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;we are just going to create a config file to specifically tell these backend are going to be used for these tasks.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;~/.config/xdg-desktop-portal&lt;/p&gt;</description></item><item><title>How to Increase Increase a Video Framerate</title><link>https://debiplobi.github.io/posts/increase-video-framerate/</link><pubDate>Sat, 26 Jul 2025 00:00:00 +0000</pubDate><guid>https://debiplobi.github.io/posts/increase-video-framerate/</guid><description>&lt;p&gt;We are going to use frame interpolation method to increase a video framerate using ffmpeg,&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;With NVIDIA GPU Card&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ffmpeg -hwaccel cuda -i input.mp4 -c:a copy -c:v libx264 -vf &lt;span style="color:#e6db74"&gt;&amp;#34;minterpolate=&amp;#39;mi_mode=mci:mc_mode=aobmc:vsbmc=1&amp;#39;&amp;#34;&lt;/span&gt; -c:v h264_nvenc -preset slow -r &lt;span style="color:#ae81ff"&gt;60&lt;/span&gt; -vb 20M output.mp4
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;Without NVIDIA Card&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ffmpeg -i input.mp4 -c:a copy -c:v libx264 -vf &lt;span style="color:#e6db74"&gt;&amp;#34;minterpolate=mi_mode=mci:mc_mode=aobmc:vsbmc=1&amp;#34;&lt;/span&gt; -preset slow -r &lt;span style="color:#ae81ff"&gt;60&lt;/span&gt; -b:v 20M output.mp4
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Explanation:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;input.mp4&lt;/code&gt; is your input video that you want to convert
+&lt;code&gt;-preset&lt;/code&gt; the slower it is the better
+&lt;code&gt;-r 60&lt;/code&gt; is the framerate that you want to convert into
+&lt;code&gt;output.mp4&lt;/code&gt; is the output file&lt;/p&gt;</description></item><item><title>My Experience With Nothing</title><link>https://debiplobi.github.io/posts/my-exp-with-nothing/</link><pubDate>Mon, 21 Jul 2025 00:00:00 +0000</pubDate><guid>https://debiplobi.github.io/posts/my-exp-with-nothing/</guid><description>&lt;p&gt;&lt;p class="imgp"&gt;
+ &lt;img loading="lazy" src="./green-purple-tint1.jpeg" alt="ref images" /&gt;
+&lt;/p&gt;
+&lt;/p&gt;
+&lt;h1 id="my-experience-with-the-nothing-phone-2a-plus"&gt;My Experience With the Nothing Phone (2a Plus)&lt;/h1&gt;
+&lt;p&gt;I used the Nothing Phone (2a Plus) for about 6 months. It was also my first phone with an AMOLED display, so at the time I didn’t really know about the quirks that sometimes come with OLED panels.&lt;/p&gt;
+&lt;p&gt;When I first bought the phone everything looked perfectly normal. The display looked vibrant and I didn’t notice anything unusual during the first few days.&lt;/p&gt;</description></item></channel></rss>
