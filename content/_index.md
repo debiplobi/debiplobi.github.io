@@ -10,9 +10,5 @@ This is my blog where I write about:
 
 - Linux
 - Programming
-- React
-- Gentoo
-
-## Recent Posts
-
-Check out the latest articles below.
+- Software
+- My opinion, thoughts and experiences
