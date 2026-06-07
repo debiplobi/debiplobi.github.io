@@ -1,6 +1,7 @@
 +++
 date = '2026-06-07T22:34:31+05:30'
 title = 'Easy Guide to Secure Boot'
+tags = ["secure-boot", "linux", "guide",]
 +++
 
 ## Why?
@@ -52,7 +53,7 @@ sbctl sign-all
 This signs almost everything needed kernel, bootloader, etc.
 
 If you want sign manually `sbctl sign -s <path>`
-in most cases that is not needed and it does the job.
+in most cases that is not needed.
 
 ### Verification
 
