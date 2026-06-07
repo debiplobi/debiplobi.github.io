@@ -22,7 +22,6 @@ Remember, I am no expert on this and I am writing from my experience.
 
 ### Check the status
 
-
 ```
 $ sbctl status
 Installed:	✘ Sbctl is not installed
@@ -58,8 +57,15 @@ in most cases that is not needed.
 ### Verification
 
 ```
-sbctl verify 
+sbctl verify
 ```
+
 you should see all green check marks,
 you are ready to reboot into BIOS and enable Secure Boot.
+
+#### Refs.
+
+https://wiki.archlinux.org/title/Unified_Extensible_Firmware_Interface/Secure_Boot
+
+https://wiki.gentoo.org/wiki/Sbctl#sbctl_status
 
