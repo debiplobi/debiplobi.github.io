@@ -49,7 +49,7 @@ sbctl enroll-keys --microsoft
 sbctl sign-all
 ```
 
-This signs almost everything needed kernel, bootloader, etc.
+This command signs almost everything needed eg: kernel, bootloader, etc.
 
 If you want sign manually `sbctl sign -s <path>`
 in most cases that is not needed.
@@ -68,4 +68,3 @@ you are ready to reboot into BIOS and enable Secure Boot.
 https://wiki.archlinux.org/title/Unified_Extensible_Firmware_Interface/Secure_Boot
 
 https://wiki.gentoo.org/wiki/Sbctl#sbctl_status
-
