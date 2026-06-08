@@ -68,12 +68,23 @@ body {
   margin: auto;
   padding: 0em 1em 2em 1em;
   font-family:
-    "Inter",
+    "Open Sans",
+    Arial,
+    Roboto,
+    system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    "Roboto",
-    Helvetica,
+    "Segoe UI",
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    "Helvetica Neue",
     sans-serif;
+  /* "Atkinson Hyperlegible", */
+  /* -apple-system, */
+  /* BlinkMacSystemFont, */
+  /* Helvetica, */
+  /* sans-serif; */
 
   line-height: 1.54;
 
@@ -179,15 +190,16 @@ ul {
   padding-left: 2rem;
 }
 
-/* NOTE: fix for Inter font. */
-strong {
-  font-weight: 600;
-}
-
-/* NOTE: fix for Inter font. */
-th {
-  font-weight: 500;
-}
+/* /* NOTE: fix for Inter font. */
+*/
+/* strong { */
+/*   font-weight: 600; */
+/* } */
+/**/
+/* /* NOTE: fix for Inter font. */ */
+/* th { */
+/*   font-weight: 500; */
+/* } */
 
 /* MISC */
 .section-title {

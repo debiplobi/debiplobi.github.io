@@ -1,9 +1,10 @@
 <br>
 
 <footer>
+  <hr/>
 
 {{ if not .IsHome }}
-<a href="/" onclick="history.back(); return false;">See more posts</a>
+<a href="/" >See more posts</a>
 {{ end }}
 {{ partial "footer_scripts.html" . }}
 {{ partial "search-index.html" . }}
